@@ -108,19 +108,28 @@ const Index = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="mt-8 md:mt-12 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          <div className="bg-gradient-to-br from-orange-300 to-orange-500 rounded-[90px] p-6 md:p-8 relative overflow-hidden">
-            <div className="absolute inset-0 bg-orange-200/30 rounded-[90px]" />
-            <div className="relative z-10 text-mariko-secondary font-el-messiri text-2xl md:text-3xl font-bold leading-tight pt-8 md:pt-12">
-              «Если хачапури пекут счастливые люди, это означает, что данное
-              блюдо делает людей счастливыми»
+        <div className="mt-8 md:mt-12 relative z-10 flex flex-col lg:flex-row gap-6 md:gap-8 items-stretch">
+          {/* Quote with custom background */}
+          <div className="flex-1 relative overflow-hidden rounded-[60px] md:rounded-[90px]">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/451968eb7d71f31ad185064ad57f981980536f02?placeholderIfAbsent=true"
+              alt="Decorative background"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="relative z-10 p-6 md:p-8 lg:p-12 flex items-center min-h-full">
+              <div className="text-mariko-secondary font-el-messiri text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
+                «Если хачапури пекут счастливые люди, это означает, что данное
+                блюдо делает людей счастливыми»
+              </div>
             </div>
           </div>
-          <div className="flex items-center justify-center">
+
+          {/* Chef image aligned to the right */}
+          <div className="flex-shrink-0 flex items-center justify-end lg:justify-center">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c2c5fe36795ccb3afae2b769acaa83ff859f88f?placeholderIfAbsent=true"
               alt="Шеф-повар"
-              className="w-full h-auto max-w-sm shadow-xl rounded-lg"
+              className="w-full h-auto max-w-xs lg:max-w-sm shadow-xl rounded-lg"
             />
           </div>
         </div>
