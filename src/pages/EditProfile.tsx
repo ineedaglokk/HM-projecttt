@@ -103,10 +103,10 @@ const EditProfile = () => {
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/02b61b7aabad947a6521432b5c65b416619b1a08?placeholderIfAbsent=true"
               alt="Грузинский воин"
-              className="w-32 h-auto md:w-40 max-w-40"
+              className="w-auto h-auto max-w-48 md:max-w-56"
               style={{
-                aspectRatio: "1.499",
                 filter: "drop-shadow(13px -2px 28px rgba(0, 0, 0, 0.25))",
+                objectFit: "contain",
               }}
             />
           </div>
