@@ -109,6 +109,19 @@ const Delivery = () => {
             />
           ))}
         </div>
+
+        {/* Delivery Truck Illustration */}
+        <div className="mt-8 md:mt-12 flex justify-center px-4">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/7b483c106c0873fef56b5de8673db668ccbe0325?placeholderIfAbsent=true"
+            alt="Грузовик доставки Марико"
+            className="w-full h-auto max-w-md lg:max-w-lg"
+            style={{
+              aspectRatio: "0.725",
+              objectFit: "contain",
+            }}
+          />
+        </div>
       </div>
 
       {/* Bottom Navigation */}
