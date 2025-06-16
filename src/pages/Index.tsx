@@ -1,13 +1,16 @@
-import { Calendar, Truck, Star, MapPin, Search, ChefHat } from "lucide-react";
+import { Calendar, Truck, Star, Search, ChefHat } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { ActionButton } from "@/components/ActionButton";
 import { MenuCard } from "@/components/MenuCard";
 import { RestaurantCard } from "@/components/RestaurantCard";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { CitySelector } from "@/components/CitySelector";
+import { useCityContext } from "@/contexts/CityContext";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { selectedCity, setSelectedCity } = useCityContext();
 
   return (
     <div className="min-h-screen bg-mariko-primary overflow-hidden flex flex-col">
@@ -25,17 +28,10 @@ const Index = () => {
               className="w-full h-auto max-w-32 md:max-w-md"
             />
           </div>
-          <button
-            onClick={() => navigate("/restaurants")}
-            className="flex items-center gap-1 text-white font-el-messiri text-sm md:text-2xl font-semibold tracking-tight hover:bg-white/10 rounded-lg p-1 md:p-2 transition-colors"
-          >
-            <div className="text-right">
-              Нижний Новгород
-              <br />
-              Рождественская, 39
-            </div>
-            <MapPin className="w-6 h-6 md:w-16 md:h-16 text-white flex-shrink-0" />
-          </button>
+          <CitySelector
+            selectedCity={selectedCity}
+            onCityChange={setSelectedCity}
+          />
         </div>
 
         {/* Main Action Buttons */}
@@ -145,12 +141,12 @@ const Index = () => {
 
           {/* Restaurant List */}
           <div className="space-y-6 md:space-y-8">
-            {Array.from({ length: 6 }, (_, i) => (
+            {selectedCity?.restaurants.map((restaurant) => (
               <RestaurantCard
-                key={i}
-                city="Нижний Новгород"
-                address="Рождественская, 39"
-                onClick={() => console.log(`Ресторан ${i + 1}`)}
+                key={restaurant.id}
+                city={restaurant.city}
+                address={restaurant.address}
+                onClick={() => navigate("/restaurants")}
               />
             ))}
           </div>
