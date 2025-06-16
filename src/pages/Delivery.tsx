@@ -123,7 +123,7 @@ const Delivery = () => {
             <div
               className="absolute left-0 bottom-8 md:bottom-12"
               style={{
-                transform: "translateX(-40%)",
+                transform: "translateX(-50%)",
               }}
             >
               <img
@@ -140,7 +140,7 @@ const Delivery = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <BottomNavigation currentPage="home" />
+      <BottomNavigation currentPage="delivery" />
     </div>
   );
 };
