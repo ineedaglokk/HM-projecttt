@@ -65,7 +65,7 @@ const Restaurants = () => {
     return cityMap[cityName] || "47/nizhny-novgorod";
   }
 
-  // Е��ли передан ID ресторана, показываем только его
+  // Если передан ID ресторана, показываем только его
   const filteredRestaurants = restaurantId
     ? allRestaurants.filter((restaurant) => restaurant.id === restaurantId)
     : allRestaurants.filter(
@@ -143,18 +143,6 @@ const Restaurants = () => {
                 className="flex-1 bg-transparent text-white placeholder-white/60 border-none outline-none font-el-messiri text-xl"
               />
             </div>
-          </div>
-        )}
-
-        {/* Показать все рестораны - если просматриваем конкретный */}
-        {restaurantId && (
-          <div className="mb-6">
-            <button
-              onClick={() => navigate("/restaurants")}
-              className="w-full bg-mariko-secondary text-white font-el-messiri text-lg font-semibold py-3 px-6 rounded-[90px] hover:bg-mariko-accent transition-colors"
-            >
-              Показать все рестораны
-            </button>
           </div>
         )}
 
