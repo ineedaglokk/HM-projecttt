@@ -15,31 +15,31 @@ const Index = () => {
       <Header />
 
       {/* Main Content */}
-      <div className="flex-1 px-4 md:px-6 max-w-6xl mx-auto w-full">
+      <div className="flex-1 px-3 md:px-6 max-w-sm md:max-w-6xl mx-auto w-full">
         {/* Location Banner */}
-        <div className="mt-8 md:mt-12 flex items-center justify-between gap-4">
+        <div className="mt-4 md:mt-8 flex items-center justify-between gap-2">
           <div className="flex-1">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c24472e785233499cd3beb16447964a9bc3cbf4?placeholderIfAbsent=true"
               alt="Хачапури логотип"
-              className="w-full h-auto max-w-md"
+              className="w-full h-auto max-w-32 md:max-w-md"
             />
           </div>
           <button
             onClick={() => navigate("/restaurants")}
-            className="flex items-center gap-2 text-white font-el-messiri text-2xl md:text-3xl font-semibold tracking-tight hover:bg-white/10 rounded-lg p-2 transition-colors"
+            className="flex items-center gap-1 text-white font-el-messiri text-sm md:text-2xl font-semibold tracking-tight hover:bg-white/10 rounded-lg p-1 md:p-2 transition-colors"
           >
-            <div>
+            <div className="text-right">
               Нижний Новгород
               <br />
               Рождественская, 39
             </div>
-            <MapPin className="w-16 h-16 md:w-20 md:h-20 text-white flex-shrink-0" />
+            <MapPin className="w-6 h-6 md:w-16 md:h-16 text-white flex-shrink-0" />
           </button>
         </div>
 
         {/* Main Action Buttons */}
-        <div className="mt-8 md:mt-12 space-y-6 md:space-y-8">
+        <div className="mt-4 md:mt-8 space-y-3 md:space-y-6">
           <ActionButton
             icon={<Calendar className="w-full h-full" />}
             title="Забронировать столик"
@@ -60,7 +60,7 @@ const Index = () => {
         </div>
 
         {/* Menu Grid */}
-        <div className="mt-8 md:mt-12 grid grid-cols-2 gap-6 md:gap-8">
+        <div className="mt-4 md:mt-8 grid grid-cols-2 gap-3 md:gap-6">
           <MenuCard
             title="Меню"
             imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/690e0689acfa56ebed78a2279312c0ee027ff6c5?placeholderIfAbsent=true"
@@ -78,7 +78,7 @@ const Index = () => {
         </div>
 
         {/* Additional Menu Items */}
-        <div className="mt-6 md:mt-8 grid grid-cols-2 gap-4 md:gap-6">
+        <div className="mt-3 md:mt-6 grid grid-cols-2 gap-3 md:gap-4">
           <MenuCard
             title="Вакансии"
             imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/5b52e54d8beda399ec6db08edd02c2b55ecea62d?placeholderIfAbsent=true"
