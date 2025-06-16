@@ -108,7 +108,7 @@ const Index = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="mt-8 md:mt-12 relative z-10 flex flex-col lg:flex-row gap-6 md:gap-8 items-stretch">
+        <div className="mt-8 md:mt-12 relative z-10 flex flex-col lg:flex-row gap-6 md:gap-8 items-stretch lg:items-end">
           {/* Quote with custom background */}
           <div className="flex-1 relative overflow-hidden rounded-[60px] md:rounded-[90px]">
             <img
