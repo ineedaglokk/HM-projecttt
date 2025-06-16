@@ -111,8 +111,8 @@ const Delivery = () => {
         </div>
       </div>
 
-      {/* Delivery Truck Illustration - Absolute positioning */}
-      <div className="absolute bottom-20 left-0 right-0 z-10 flex justify-center">
+      {/* Delivery Truck Illustration - Fill remaining space */}
+      <div className="flex-grow flex items-end justify-center">
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/7b483c106c0873fef56b5de8673db668ccbe0325?placeholderIfAbsent=true"
           alt="Грузовик доставки Марико"
@@ -120,8 +120,6 @@ const Delivery = () => {
           style={{
             aspectRatio: "0.725",
             objectFit: "contain",
-            marginBottom: "-20px",
-            marginTop: "-20px",
           }}
         />
       </div>
