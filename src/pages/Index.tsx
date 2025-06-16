@@ -109,10 +109,10 @@ const Index = () => {
       </div>
 
       {/* Quote Section - Outside container for edge-to-edge layout */}
-      <div className="mt-8 md:mt-12 relative z-10">
-        <div className="px-3 md:px-6 max-w-sm md:max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 md:gap-8 items-stretch lg:items-end relative">
+      <div className="mt-8 md:mt-12 relative z-10 px-3 md:px-6">
+        <div className="max-w-sm md:max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 md:gap-8 items-stretch lg:items-end">
           {/* Quote with custom background */}
-          <div className="flex-1 relative overflow-hidden rounded-[60px] md:rounded-[90px] lg:max-w-md xl:max-w-lg">
+          <div className="flex-1 relative overflow-hidden rounded-[60px] md:rounded-[90px]">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/451968eb7d71f31ad185064ad57f981980536f02?placeholderIfAbsent=true"
               alt="Decorative background"
@@ -126,21 +126,12 @@ const Index = () => {
             </div>
           </div>
 
-<<<<<<< HEAD
           {/* Chef image aligned to the right edge - breaking out of container */}
           <div className="flex-shrink-0 flex items-end justify-end lg:justify-end relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 z-50">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c2c5fe36795ccb3afae2b769acaa83ff859f88f?placeholderIfAbsent=true"
               alt="Шеф-повар"
               className="w-auto h-auto max-w-xs lg:max-w-sm object-contain object-bottom lg:object-right-bottom"
-=======
-          {/* Chef image - completely breaking out to screen edge */}
-          <div className="lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:-mr-3 xl:-mr-6 flex items-end justify-end">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c2c5fe36795ccb3afae2b769acaa83ff859f88f?placeholderIfAbsent=true"
-              alt="Шеф-повар"
-              className="w-auto h-auto max-w-none max-h-80 lg:max-h-96 xl:max-h-full object-contain object-bottom lg:object-right-bottom"
->>>>>>> c562e4edda5fa45744e2319f070013399b57c493
               style={{
                 filter: "drop-shadow(0 0 20px rgba(0,0,0,0.1))",
                 transform: "scale(1.05) translateX(20%)",
