@@ -118,7 +118,7 @@ const Index = () => {
               className="absolute inset-0 rounded-[60px] md:rounded-[90px]"
               style={{
                 width: "250px",
-                transform: "translateX(-20%)",
+                transform: "translateX(-15%)",
                 backgroundImage:
                   "url('https://cdn.builder.io/api/v1/image/assets/TEMP/6adaa69b9b695b102edc1027007a2c3d466235b8?placeholderIfAbsent=true')",
                 backgroundSize: "cover",
@@ -130,7 +130,7 @@ const Index = () => {
               className="relative z-10 text-mariko-secondary font-el-messiri text-2xl md:text-3xl lg:text-4xl font-bold leading-tight p-6 md:p-8"
               style={{
                 width: "200px",
-                transform: "translateX(-20%)",
+                transform: "translateX(-15%)",
               }}
             >
               «Если хачапури пекут счастливые люди, это означает, что данное
