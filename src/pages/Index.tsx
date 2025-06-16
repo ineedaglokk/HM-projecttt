@@ -7,6 +7,7 @@ import {
   Utensils,
   ChefHat,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { ActionButton } from "@/components/ActionButton";
 import { MenuCard } from "@/components/MenuCard";
@@ -14,6 +15,8 @@ import { RestaurantCard } from "@/components/RestaurantCard";
 import { BottomNavigation } from "@/components/BottomNavigation";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-mariko-primary overflow-hidden flex flex-col">
       {/* Header */}
@@ -51,7 +54,7 @@ const Index = () => {
           <ActionButton
             icon={<Truck className="w-full h-full" />}
             title="Доставка"
-            onClick={() => console.log("Доставка")}
+            onClick={() => navigate("/delivery")}
           />
 
           <ActionButton
@@ -90,7 +93,7 @@ const Index = () => {
           <MenuCard
             title="Акции"
             imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/89ad2d18cf715439bf30ec0a63f2079875e962bb?placeholderIfAbsent=true"
-            onClick={() => console.log("Акции")}
+            onClick={() => navigate("/promotions")}
           />
         </div>
 
@@ -128,7 +131,7 @@ const Index = () => {
           {/* Restaurants Header */}
           <div className="flex items-center justify-between mb-8 md:mb-12">
             <h2 className="text-white font-el-messiri text-4xl md:text-5xl font-bold tracking-tight">
-              Рестораны
+              Рестор��ны
             </h2>
             <button className="bg-mariko-primary rounded-full p-3 md:p-4 hover:scale-105 transition-transform">
               <Search className="w-8 h-8 md:w-10 md:h-10 text-white" />
