@@ -3,6 +3,8 @@ import { ArrowLeft, MapPin, Parking, Star, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { CitySelector, cities } from "@/components/CitySelector";
+import { useCityContext } from "@/contexts/CityContext";
 
 interface Restaurant {
   id: string;
@@ -20,94 +22,49 @@ interface Restaurant {
 const Restaurants = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
+  const { selectedCity, setSelectedCity } = useCityContext();
 
-  const restaurants: Restaurant[] = [
-    {
-      id: "nn-rozh",
-      name: "Нижний Новгород",
-      address: "Рождественская, 39",
-      city: "Нижний Новгород",
-      yandexMapsUrl: "https://yandex.ru/maps/org/khachapuri_mariko/",
-      gisUrl: "https://2gis.ru/nizhnynovgorod/firm/",
-      yandexParkingUrl:
-        "https://yandex.ru/maps/47/nizhny-novgorod/?text=parking",
-      gisParkingUrl: "https://2gis.ru/nizhnynovgorod/search/parking",
-      yandexReviewUrl: "https://yandex.ru/maps/org/khachapuri_mariko/reviews/",
-      gisReviewUrl: "https://2gis.ru/nizhnynovgorod/firm/reviews/",
-    },
-    {
-      id: "nn-park",
-      name: "Нижний Новгород",
-      address: "Парк Швейцария",
-      city: "Нижний Новгород",
-      yandexMapsUrl: "https://yandex.ru/maps/org/khachapuri_mariko_park/",
-      gisUrl: "https://2gis.ru/nizhnynovgorod/firm/park/",
-      yandexParkingUrl:
-        "https://yandex.ru/maps/47/nizhny-novgorod/?text=parking",
-      gisParkingUrl: "https://2gis.ru/nizhnynovgorod/search/parking",
-      yandexReviewUrl:
-        "https://yandex.ru/maps/org/khachapuri_mariko_park/reviews/",
-      gisReviewUrl: "https://2gis.ru/nizhnynovgorod/firm/park/reviews/",
-    },
-    {
-      id: "nn-volga",
-      name: "Нижний Новгород",
-      address: "Волжская набережная, 23а",
-      city: "Нижний Новгород",
-      yandexMapsUrl: "https://yandex.ru/maps/org/khachapuri_mariko_volga/",
-      gisUrl: "https://2gis.ru/nizhnynovgorod/firm/volga/",
-      yandexParkingUrl:
-        "https://yandex.ru/maps/47/nizhny-novgorod/?text=parking",
-      gisParkingUrl: "https://2gis.ru/nizhnynovgorod/search/parking",
-      yandexReviewUrl:
-        "https://yandex.ru/maps/org/khachapuri_mariko_volga/reviews/",
-      gisReviewUrl: "https://2gis.ru/nizhnynovgorod/firm/volga/reviews/",
-    },
-    {
-      id: "spb-sennaya",
-      name: "Санкт-Петербург",
-      address: "Сенная, 5",
-      city: "Санкт-Петербург",
-      yandexMapsUrl: "https://yandex.ru/maps/org/khachapuri_mariko_spb/",
-      gisUrl: "https://2gis.ru/spb/firm/sennaya/",
-      yandexParkingUrl:
-        "https://yandex.ru/maps/2/saint-petersburg/?text=parking",
-      gisParkingUrl: "https://2gis.ru/spb/search/parking",
-      yandexReviewUrl:
-        "https://yandex.ru/maps/org/khachapuri_mariko_spb/reviews/",
-      gisReviewUrl: "https://2gis.ru/spb/firm/sennaya/reviews/",
-    },
-    {
-      id: "spb-italyanskaya",
-      name: "Санкт-Петербург",
-      address: "Итальянская, 6/4",
-      city: "Санкт-Петербург",
-      yandexMapsUrl: "https://yandex.ru/maps/org/khachapuri_mariko_spb_ital/",
-      gisUrl: "https://2gis.ru/spb/firm/italyanskaya/",
-      yandexParkingUrl:
-        "https://yandex.ru/maps/2/saint-petersburg/?text=parking",
-      gisParkingUrl: "https://2gis.ru/spb/search/parking",
-      yandexReviewUrl:
-        "https://yandex.ru/maps/org/khachapuri_mariko_spb_ital/reviews/",
-      gisReviewUrl: "https://2gis.ru/spb/firm/italyanskaya/reviews/",
-    },
-    // Добавляем остальные рестораны из схемы
-    {
-      id: "kazan-pushkina",
-      name: "Казань",
-      address: "Пушкина, 10",
-      city: "Казань",
-      yandexMapsUrl: "https://yandex.ru/maps/org/khachapuri_mariko_kazan/",
-      gisUrl: "https://2gis.ru/kazan/firm/pushkina/",
-      yandexParkingUrl: "https://yandex.ru/maps/43/kazan/?text=parking",
-      gisParkingUrl: "https://2gis.ru/kazan/search/parking",
-      yandexReviewUrl:
-        "https://yandex.ru/maps/org/khachapuri_mariko_kazan/reviews/",
-      gisReviewUrl: "https://2gis.ru/kazan/firm/pushkina/reviews/",
-    },
-  ];
+  // Получаем все рестораны из всех городов для поиска
+  const allRestaurants: Restaurant[] = cities.flatMap((city) =>
+    city.restaurants.map((restaurant) => ({
+      id: restaurant.id,
+      name: restaurant.name,
+      address: restaurant.address,
+      city: restaurant.city,
+      yandexMapsUrl: `https://yandex.ru/maps/org/khachapuri_mariko_${restaurant.id}/`,
+      gisUrl: `https://2gis.ru/${getCityUrlSlug(restaurant.city)}/firm/${restaurant.id}/`,
+      yandexParkingUrl: `https://yandex.ru/maps/${getCityMapId(restaurant.city)}/?text=parking`,
+      gisParkingUrl: `https://2gis.ru/${getCityUrlSlug(restaurant.city)}/search/parking`,
+      yandexReviewUrl: `https://yandex.ru/maps/org/khachapuri_mariko_${restaurant.id}/reviews/`,
+      gisReviewUrl: `https://2gis.ru/${getCityUrlSlug(restaurant.city)}/firm/${restaurant.id}/reviews/`,
+    })),
+  );
 
-  const filteredRestaurants = restaurants.filter(
+  function getCityUrlSlug(cityName: string): string {
+    const cityMap: { [key: string]: string } = {
+      "Нижний Новгород": "nizhnynovgorod",
+      "Санкт-Петербург": "spb",
+      Казань: "kazan",
+      Кемерово: "kemerovo",
+      Томск: "tomsk",
+      Волгоград: "volgograd",
+    };
+    return cityMap[cityName] || "nizhnynovgorod";
+  }
+
+  function getCityMapId(cityName: string): string {
+    const cityMap: { [key: string]: string } = {
+      "Нижний Новгород": "47/nizhny-novgorod",
+      "Санкт-Петербург": "2/saint-petersburg",
+      Казань: "43/kazan",
+      Кемерово: "64/kemerovo",
+      Томск: "75/tomsk",
+      Волгоград: "38/volgograd",
+    };
+    return cityMap[cityName] || "47/nizhny-novgorod";
+  }
+
+  const filteredRestaurants = allRestaurants.filter(
     (restaurant) =>
       restaurant.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       restaurant.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -115,8 +72,13 @@ const Restaurants = () => {
   );
 
   const selectRestaurant = (restaurant: Restaurant) => {
-    // Сохраняем выбранный ресторан в localStorage или state management
-    localStorage.setItem("selectedRestaurant", JSON.stringify(restaurant));
+    // Находим город этого ресторана и устанавливаем его как выбранный
+    const restaurantCity = cities.find((city) =>
+      city.restaurants.some((r) => r.id === restaurant.id),
+    );
+    if (restaurantCity) {
+      setSelectedCity(restaurantCity);
+    }
     navigate("/");
   };
 
@@ -135,9 +97,14 @@ const Restaurants = () => {
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
-          <h1 className="text-white font-el-messiri text-3xl md:text-4xl font-bold">
+          <h1 className="text-white font-el-messiri text-3xl md:text-4xl font-bold flex-1">
             Рестораны
           </h1>
+          <CitySelector
+            selectedCity={selectedCity}
+            onCityChange={setSelectedCity}
+            className="flex-shrink-0"
+          />
         </div>
 
         {/* Search */}
