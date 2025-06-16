@@ -84,16 +84,11 @@ const Index = () => {
           />
         </div>
 
-        <div className="mt-4 md:mt-6 grid grid-cols-2 gap-4 md:gap-6">
+        <div className="mt-4 md:mt-6 grid grid-cols-1 gap-4 md:gap-6">
           <MenuCard
             title="Акции"
             imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/89ad2d18cf715439bf30ec0a63f2079875e962bb?placeholderIfAbsent=true"
             onClick={() => navigate("/promotions")}
-          />
-          <MenuCard
-            title="Франшиза"
-            imageUrl="https://cdn.builder.io/api/v1/image/assets/TEMP/690e0689acfa56ebed78a2279312c0ee027ff6c5?placeholderIfAbsent=true"
-            onClick={() => navigate("/franchise")}
           />
         </div>
 

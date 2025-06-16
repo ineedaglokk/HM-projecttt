@@ -21,7 +21,7 @@ const Franchise = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <BottomNavigation currentPage="home" />
+      <BottomNavigation currentPage="franchise" />
     </div>
   );
 };
