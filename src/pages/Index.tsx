@@ -108,30 +108,31 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Quote Section - Outside container for edge-to-edge layout */}
+      {/* Quote Section - Vertical text along the chef */}
       <div className="mt-8 md:mt-12 relative z-10 px-3 md:px-6">
-        <div className="max-w-sm md:max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 md:gap-8 items-stretch lg:items-end">
-          {/* Quote with custom background */}
-          <div className="flex-1 relative overflow-hidden rounded-[60px] md:rounded-[90px]">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/451968eb7d71f31ad185064ad57f981980536f02?placeholderIfAbsent=true"
-              alt="Decorative background"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="relative z-10 p-6 md:p-8 lg:p-12 flex items-center min-h-full">
-              <div className="text-mariko-secondary font-el-messiri text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
-                «Если хачапури пекут счастливые люди, это означает, что данное
-                блюдо делает людей счастливыми»
-              </div>
+        <div className="max-w-sm md:max-w-6xl mx-auto relative flex justify-end">
+          {/* Vertical Quote positioned along the chef */}
+          <div className="absolute left-8 md:left-16 lg:left-24 top-4 md:top-8 z-40">
+            <div
+              className="text-white font-el-messiri text-lg md:text-xl lg:text-2xl font-bold leading-tight writing-mode-vertical"
+              style={{
+                writingMode: "vertical-rl",
+                textOrientation: "mixed",
+                maxWidth: "400px",
+                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))",
+              }}
+            >
+              «Если хачапури пекут счастливые люди, это означает, что данное
+              блюдо делает людей счастливыми»
             </div>
           </div>
 
-          {/* Chef image aligned to the right edge - breaking out of container */}
-          <div className="flex-shrink-0 flex items-end justify-end lg:justify-end relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 z-50">
+          {/* Chef image aligned to the right edge */}
+          <div className="flex-shrink-0 flex items-end justify-end relative z-50">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c2c5fe36795ccb3afae2b769acaa83ff859f88f?placeholderIfAbsent=true"
               alt="Шеф-повар"
-              className="w-auto h-auto max-w-xs lg:max-w-sm object-contain object-bottom lg:object-right-bottom"
+              className="w-auto h-auto max-w-xs lg:max-w-sm object-contain object-bottom"
               style={{
                 filter: "drop-shadow(0 0 20px rgba(0,0,0,0.1))",
                 transform: "scale(1.05) translateX(20%)",
