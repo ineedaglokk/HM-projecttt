@@ -111,14 +111,26 @@ const Index = () => {
       {/* Quote Section - Vertical text along the chef */}
       <div className="mt-8 md:mt-12 relative z-10 px-3 md:px-6">
         <div className="max-w-sm md:max-w-6xl mx-auto relative flex justify-end">
-          {/* Vertical Column Quote positioned along the chef - extending beyond left edge */}
-          <div className="absolute left-0 top-4 md:top-8 z-60">
+          {/* Vertical Column Quote positioned along the chef middle - extending beyond left edge */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-60">
+            {/* Background extending beyond edges */}
             <div
-              className="text-white font-el-messiri text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
+              className="absolute inset-0 rounded-[60px] md:rounded-[90px]"
+              style={{
+                width: "250px",
+                transform: "translateX(-20%)",
+                backgroundImage:
+                  "url('https://cdn.builder.io/api/v1/image/assets/TEMP/6adaa69b9b695b102edc1027007a2c3d466235b8?placeholderIfAbsent=true')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            {/* Text on top of background */}
+            <div
+              className="relative z-10 text-mariko-secondary font-el-messiri text-2xl md:text-3xl lg:text-4xl font-bold leading-tight p-6 md:p-8"
               style={{
                 width: "200px",
                 transform: "translateX(-20%)",
-                filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))",
               }}
             >
               «Если хачапури пекут счастливые люди, это означает, что данное
