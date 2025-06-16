@@ -40,7 +40,7 @@ const Index = () => {
           <ActionButton
             icon={<Calendar className="w-full h-full" />}
             title="Забронировать столик"
-            onClick={() => console.log("Бронирование")}
+            onClick={() => navigate("/booking")}
           />
 
           <ActionButton
@@ -52,7 +52,7 @@ const Index = () => {
           <ActionButton
             icon={<Star className="w-full h-full" />}
             title="Оставить отзыв"
-            onClick={() => console.log("Отзыв")}
+            onClick={() => navigate("/review")}
           />
         </div>
 
