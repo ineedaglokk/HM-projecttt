@@ -4,7 +4,6 @@ import {
   Star,
   MapPin,
   Search,
-  Home,
   Utensils,
   ChefHat,
 } from "lucide-react";
@@ -12,15 +11,16 @@ import { Header } from "@/components/Header";
 import { ActionButton } from "@/components/ActionButton";
 import { MenuCard } from "@/components/MenuCard";
 import { RestaurantCard } from "@/components/RestaurantCard";
+import { BottomNavigation } from "@/components/BottomNavigation";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-mariko-primary overflow-hidden">
+    <div className="min-h-screen bg-mariko-primary overflow-hidden flex flex-col">
       {/* Header */}
       <Header />
 
       {/* Main Content */}
-      <div className="px-4 md:px-6 max-w-6xl mx-auto">
+      <div className="flex-1 px-4 md:px-6 max-w-6xl mx-auto w-full">
         {/* Location Banner */}
         <div className="mt-8 md:mt-12 flex items-center justify-between gap-4">
           <div className="flex-1">
@@ -146,26 +146,11 @@ const Index = () => {
               />
             ))}
           </div>
-
-          {/* Bottom Navigation */}
-          <div className="mt-8 md:mt-12 relative">
-            <div className="bg-black/50 rounded-t-[40px] absolute -top-8 right-0 px-8 md:px-12 py-3 md:py-4">
-              <div className="flex flex-col items-center gap-2">
-                <Home className="w-8 h-8 md:w-10 md:h-10 text-white" />
-                <span className="text-white font-el-messiri text-sm md:text-base font-semibold">
-                  Главная
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-mariko-dark rounded-t-[40px] py-6 md:py-8 text-center">
-              <span className="text-mariko-text-secondary font-normal text-lg md:text-xl tracking-wide">
-                @Mariko_Bot
-              </span>
-            </div>
-          </div>
         </div>
       </footer>
+
+      {/* Bottom Navigation */}
+      <BottomNavigation currentPage="home" />
     </div>
   );
 };
